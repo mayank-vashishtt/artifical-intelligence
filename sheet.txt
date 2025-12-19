@@ -1,0 +1,35 @@
+baseline 
+missing values method 
+EDA 
+one hot encoding ? 
+what is encoding first ? 
+X_encoded = pd.get_dummies(
+    X,
+    columns=categorical_cols,
+    drop_first=True
+) // explain this function 
+
+wht Safety check is needed ? 
+
+
+why we split data in 2 parts train and test ? 
+why can't just train data in whole dataset ?and then try to predict on other data ? 
+
+
+Why random_state=42?
+
+Key concept: Generalization
+
+ML is not about fitting known data.
+It’s about performing well on NEW data.
+
+what is overfitting and underfitting ? 
+
+feature scaling ? 
+
+What StandardScaler does mathematically? 
+
+mae? 
+mse ? 
+rmse ? 
+r2 score? 
