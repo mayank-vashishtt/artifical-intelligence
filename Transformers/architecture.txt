@@ -1,0 +1,151 @@
+sequence to sequence model 
+
+
+input length != output length
+order matters. 
+output depends on prev output and entire input
+
+
+
+
+encoder decoder architecture
+
+
+encoder?
+what encoder do. ?
+- Encodes input sequence into fixed-length context vector
+- Captures input semantics
+
+decoder
+- Generates output sequence from context vector
+- Predicts one token at a time
+- Uses previous outputs as inputs
+- Uses attention to focus on relevant input parts
+
+
+
+
+-- now pre 2017 era 
+RBMT -- rule based machine translation , its dialect of if else condition
+
+NMT -- neural machine translation , rnn and lstm era that is without attention 
+- uses rnn based encoder decoder architecture
+- better then rbmt as it learns from data rather than hard coded rules
+- but has limitations like long term dependencies , slow training etc
+
+is RNN NMT?
+No, RNN is not NMT. RNN is a type of neural network architecture used in various applications, including NMT (Neural Machine Translation).
+ NMT systems often utilize RNNs as part of their encoder-decoder architecture to process and translate sequences of text. However, NMT can also be implemented using other architectures, such as Transformers, which have become more popular in recent years due to their efficiency and effectiveness in handling long-range dependencies in text.
+and why not which is nmt ? 
+
+
+problem in rnn and lstm based without attenttion ? 
+bottleneck problem
+vanishing gradient problem
+
+paralleslization problem
+Because they have a sequential dependency:
+
+
+then it comes attention mechanism to solve these problems
+along with c we are looking at encoder hidden states too while decoding
+
+
+how in attention mechanism  we know which encoder hidden state to look at while decoding ? 
+i mean how ? 
+
+
+
+
+what is diff 
+between rnn/lstm and rnn/lstm with attention 
+but whts diff in above if still its bottleneck problem
+
+
+still it was sequenetial 
+that is bottleneck problem still exists
+so transformer came into picture to solve these problems completely
+
+
+
+
+-- tranformers 
+removed recurration completely
+process entire sequence in parallel
+
+
+self attention 
+cross attention 
+masked attention 
+
+
+
+query key value 
+score = dot(query,keyT)/sqrt(dk)
+
+
+attention weights = softmax(score)
+
+
+cross attention mecahnism 
+
+
+multi head attention?
+- multiple sets of query, key, value matrices
+- allows model to focus on different parts of input simultaneously
+- enhances representation power
+
+BPTL
+- Backpropagation Through LAYER 
+
+
+why we need positional encoding after word2vec or embedding ?
+- Embeddings capture word meaning but not order
+- Positional encodings add sequence order information
+but word2vec capture order too in some way right ?
+Word2Vec captures semantic relationships between words based on their context, but it does not explicitly encode the order of words in a sequence. 
+For example, Word2Vec can learn that "king" and "queen" are related, but it does not capture the fact that "the cat sat on the mat" has a specific order that is different from "the mat sat on the cat."
+
+
+Positional Encoding?
+- Adds sequence order information to input embeddings
+- Since transformers process inputs in parallel, positional encodings help retain the order of tokens
+- Typically implemented using sine and cosine functions of different frequencies
+
+why we dont do indexing as positional encoding ?
+Indexing is a discrete representation and does not provide a continuous sense of position. Positional encodings, 
+on the other hand, use continuous functions (like sine and cosine) to represent positions,
+
+frequency based encoding?
+- Uses sine and cosine functions at different frequencies to encode positions
+- Allows model to learn relative positions and distances between tokens
+- Provides a continuous representation of position
+
+how it works ? 
+- For each position in the sequence, compute sine and cosine values using different frequencies
+- Combine these values to create a positional encoding vector
+- Add positional encoding vectors to input embeddings before feeding them into the transformer model
+- This way, the model can differentiate between tokens based on their positions in the sequence
+
+
+
+residual connection ? \
+- Helps mitigate vanishing gradient problem
+- Allows gradients to flow directly through the network
+- Improves training of deep networks
+multi head attention is big block some orinal context is lost 
+
+
+WHat is activation function 
+ReLu 
+
+
+masked self attention? 
+- Prevents attention to future tokens during training
+- Ensures model only uses past and present tokens for prediction
+- Implemented by masking out future positions in the attention score matrix 
+
+
+teacher enforcing ? 
+
+softmax ? 
