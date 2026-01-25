@@ -1,0 +1,57 @@
+input layer 
+output layer 
+hidden layer 
+
+
+neurons and paramter are same ? 
+
+traditional programmign vs machine learning ? 
+
+neuron 
+take input 
+multiple by weight (something that they learn and change)
+sum them up
+activation function 
+then output 
+
+output = activation(sigma(weights * inputs) + bias)
+bias ? 
+
+
+the linearity problem ? 
+this activation function was the reason of winterfall of AI 
+
+why we need activation function ??
+to introduce non linearity in the model, because this is just lineraity 
+i mean multiple and adding 
+
+why non lineraity is important ?
+for dividing some pattern we need curve lines mostly , straight lines are not enough
+
+diff activation function ? 
+sigmoid  0 to 1
+tanh  -1 to 1
+ReLU `0 to inf
+Modern Variants(GeLU and Swish)
+
+loss function ?
+loss score ? 
+MSE 
+
+back progation , chain of blame ? 
+forward? progation
+
+
+learning rate -- hyper paramter 
+loss landsacape
+
+
+gradient descent? -- backpropagation with learniqng rate? 
+
+
+
+
+forward pass 
+Loss Calculation
+Backpropagation
+Weight Updates
